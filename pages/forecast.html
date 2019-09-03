@@ -1,20 +1,22 @@
 forecast for {{ city }}
 
-<div data-ng-repeat='w in weatherResult.wind' >
+<div data-ng-model='$scope.weatherResult.main.temp' >
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <h3 class="panel-title">test </h3>
-                
+                <div class="panel-heading">
+                <h3 class="panel-title">Temperature </h3>
+                </div>
             </div>
             <div class="panel-body">
                 <!-- Daytime temperature: 
                 {{ w.main }}  -->
                 <!-- {{w}} -->
-                {{w}}
+                {{weatherResult.main.temp}}
             </div>
         </div>
     </div>
-</div><!-- / ng repeat -->
+</div>
+<!-- / ng repeat -->
 
  
