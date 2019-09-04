@@ -40,13 +40,15 @@ weatherApp.controller('forecastController', ['$scope', '$resource','cityService'
         $scope.city = cityService.city;
 
         $scope.weatherAPI =
-            $resource('http://api.openweathermap.org/data/2.5/weather?q=dublin&APPID=3074798bebbc48aa3f502c48f6b00ad4' , {
+            $resource('http://api.openweathermap.org/data/2.5/forecast/?q=dublin&cnt=2&APPID=3074798bebbc48aa3f502c48f6b00ad4' , {
                 callback: 'JSON_CALLBACK' }, { get: { method: 'JSONP'}});
         $scope.weatherResult = $scope.weatherAPI.get({ 
-            q: $scope.city
+            q: $scope.city, cnt: 2
         });
         
-        console.log($scope.weatherResult);
+        // convert temp value to fahrenheit
+        $scope.convertToFahrenheit = function(degK) {
+            return Math.round((1.8 * (degK - 273) + 32));
+        }
         
-
 }]);
