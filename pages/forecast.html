@@ -1,20 +1,15 @@
-forecast for {{ city }}
+<p><a href="#/">Back to search</a></p>
+
+Forecast for {{ city }}
+<br>
+<br>
 
 <div data-ng-repeat='w in weatherResult.list' >
     <div class="row">
         <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                <h3 class="panel-title">{{ w.dt_txt }}</h3>
-                </div>
-            </div>
-            <div class="panel-body">
-                Daytime temperature: {{convertToFahrenheit(w.main.temp)}} °F
-            </div>
-        </div>
+            <weather-report weather-day="w" convert-to-standard="convertToFahrenheit(daytimeTemp)" convert-to-date="convertToDate(dt_txt)" date-format="MMMM d, y"></weather-report>
+        </div> 
     </div>
-</div>
-<!-- / ng repeat -->
-<!-- list[""0""].weather[""0""].description -->
+</div><!-- / ng repeat -->
 
  
